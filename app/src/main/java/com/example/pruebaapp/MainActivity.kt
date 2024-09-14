@@ -201,7 +201,26 @@ fun GreetingCard() {
         )
     }
 }
-
+@Composable
+fun ViewHolaCurso() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize() // Cambié fillMaxWith() a fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "Welcome to the Course!",
+            fontSize = 28.sp,
+            fontWeight = FontWeight.Bold // Cambié FontWeigh.Bold a FontWeight.Bold
+        )
+        Spacer(modifier = Modifier.height(16.dp)) // Cambié heigh a height
+        Text(
+            text = "Hello, Student!",
+            fontSize = 20.sp // Cambié 20.xD a 20.sp
+        )
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun PreviewGreetingCard() {
