@@ -48,8 +48,8 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
-@OptIn(ExperimentalMaterial3Api::class)
+//commit numero 2 hecho
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
 fun MainScreen() {
     Scaffold(
@@ -72,12 +72,24 @@ fun MainScreen() {
             item {
                 GreetingCard()
             }
+            item {
+                // FlowRow añadido para el primer commit
+                FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text("Hola mi nombre es Pablo")
+                    Text("Mi segundo nombre es Javier")
+                    Text("Mis apellidos son Condori Rojas")
+                }
+            }
             items(5) { index ->
                 HabitCard(index)
             }
         }
     }
 }
+
 @Composable
 fun HabitCard(index: Int) {
     Card(
