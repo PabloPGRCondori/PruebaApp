@@ -73,14 +73,13 @@ fun MainScreen() {
                 GreetingCard()
             }
             item {
-                // Superficie añadida como segundo commit
-                Surface(
-                    modifier = Modifier.fillMaxWidth(),
-                    color = Color.LightGray,
-                    shape = MaterialTheme.shapes.medium,
-                    tonalElevation = 4.dp
+                // LazyColumn añadido como tercer commit
+                LazyColumn(
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    HabitCard(index = 0)
+                    items(3) { index ->
+                        Text("Elemento LazyColumn $index")
+                    }
                 }
             }
             items(5) { index ->
@@ -89,6 +88,7 @@ fun MainScreen() {
         }
     }
 }
+
 
 @Composable
 fun HabitCard(index: Int) {
