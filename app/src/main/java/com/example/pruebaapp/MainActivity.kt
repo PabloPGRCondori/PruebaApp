@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
@@ -32,6 +33,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.material3.Text
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Settings
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 
 
 class MainActivity : ComponentActivity() {
@@ -73,13 +76,15 @@ fun MainScreen() {
                 GreetingCard()
             }
             item {
-                // LazyColumn añadido como tercer commit
-                LazyColumn(
-                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                // Superficie con estilo personalizado añadida para un cuarto posible commit
+                Surface(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
+                        .shadow(8.dp, shape = RoundedCornerShape(16.dp)),
+                    shape = RoundedCornerShape(16.dp),
                 ) {
-                    items(3) { index ->
-                        Text("Elemento LazyColumn $index")
-                    }
+                    HabitCard(index = 0)
                 }
             }
             items(5) { index ->
@@ -88,6 +93,7 @@ fun MainScreen() {
         }
     }
 }
+
 
 
 @Composable
